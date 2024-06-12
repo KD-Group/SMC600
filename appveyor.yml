@@ -20,12 +20,10 @@ environment:
 install:
   - SET "PYTHONHOME=%PYTHON%"
   - SET "PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
-  - "dir C:\\"
-  - python --version
   - python -m pip install --upgrade pip
   - python -m pip install -U pip wheel setuptools twine
   - pip install -r requirements.txt
-  - choco install -y cinst swig
+  - choco install -y swig
 
 before_test:
   - python --version
