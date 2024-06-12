@@ -58,7 +58,7 @@ static short home_move_e(unsigned short CardNo, unsigned short axis) {
     return smc_home_move(CardNo, axis);
 }
 
-static short pmove_e(unsigned short CardNo, unsigned short axis, long Dist, unsigned short posi_mode) {
+static short pmove_e(unsigned short CardNo, unsigned short axis, double Dist, unsigned short posi_mode) {
     return smc_pmove_unit(CardNo, axis, Dist, posi_mode);
 }
 
@@ -84,10 +84,10 @@ static short emg_stop_e(unsigned short CardNo) {
     return smc_emg_stop(CardNo);
 }
 
-static short update_target_position_e(unsigned short CardNo, unsigned short axis, long dst) {
+static short update_target_position_e(unsigned short CardNo, unsigned short axis, double dst) {
     return smc_update_target_position_unit(CardNo, axis, dst);
 }
 
-static short reset_target_position_e(unsigned short CardNo, unsigned short axis, long dist) {
+static short reset_target_position_e(unsigned short CardNo, unsigned short axis, double dist) {
     return smc_reset_target_position_unit(CardNo, axis, dist);
 }
