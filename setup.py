@@ -5,7 +5,6 @@ setup.py file for smc600 module
 
 import os
 import shutil
-import subprocess
 
 from setuptools import Extension, find_packages, setup
 from setuptools.command.build_py import build_py
