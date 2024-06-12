@@ -4,6 +4,7 @@ setup.py file for smc600 module
 """
 
 import os
+import glob
 import shutil
 
 from setuptools import Extension, find_packages, setup
@@ -11,9 +12,10 @@ from setuptools.command.build_py import build_py
 
 
 def copy_ext_modules():
-    ext_module_path = '_smc600.cp38-win_amd64.pyd'
-    if os.path.exists(ext_module_path):
-        shutil.copy(ext_module_path, 'SMC600/_smc600.pyd')
+    ext_module_paths = glob.glob("_smc600.*.pyd")
+    for ext_module_path in ext_module_paths:
+        if os.path.exists(ext_module_path):
+            shutil.copy(ext_module_path, 'SMC600/_smc600.pyd')
 
 
 MOTION_EXT = Extension(
