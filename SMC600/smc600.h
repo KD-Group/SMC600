@@ -7,7 +7,7 @@ using namespace std;
 #include "LTSMC.h"
 
 static short board_init_e(unsigned short CardNo, unsigned short type, char *pconnectstring, unsigned long dwBaudRate) {
-    return smc_board_init(CardNo, type, pconnectstring, dwBaudRate) > 0 ? 0 : 71;
+    return smc_board_init(CardNo, type, pconnectstring, dwBaudRate);
 }
 
 static short board_reset_e(unsigned short CardNo) {
@@ -54,6 +54,11 @@ static short set_homemode_e(unsigned short CardNo, unsigned short axis, unsigned
     return smc_set_homemode(CardNo, axis, home_dir, vel_mode, mode, EZ_count);
 }
 
+static short set_home_profile_e(unsigned short CardNo, unsigned short axis, double Min_Vel, double Max_Vel,
+                                double Tacc, double Tdec) {
+    return smc_set_home_profile_unit(CardNo, axis, Min_Vel, Max_Vel, Tacc, Tdec);
+}
+
 static short home_move_e(unsigned short CardNo, unsigned short axis) {
     return smc_home_move(CardNo, axis);
 }
@@ -76,7 +81,15 @@ static short set_position_e(unsigned short CardNo, unsigned short axis, double c
     return smc_set_position_unit(CardNo, axis, current_position);
 }
 
-static short stop(unsigned short CardNo, unsigned short axis, unsigned short stop_mode) {
+static short get_encoder_unit_e(unsigned short ConnectNo, unsigned short axis, double* pos) {
+    return smc_get_encoder_unit(ConnectNo, axis, pos);
+}
+
+static short set_encoder_unit_e(unsigned short ConnectNo,unsigned short axis,double encoder_value) {
+    return smc_set_encoder_unit(ConnectNo, axis, encoder_value);
+}
+
+static short stop_e(unsigned short CardNo, unsigned short axis, unsigned short stop_mode) {
     return smc_stop(CardNo, axis, stop_mode);
 }
 

@@ -40,7 +40,7 @@ class BuildPy(build_py):
 copy_ext_modules()
 
 setup(name='SMC600',
-      version='0.0.2',
+      version='0.0.7',
       author="WingC",
       author_email="1018957763@qq.com",
       description="""Python module for SMC600""",
