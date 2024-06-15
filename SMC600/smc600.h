@@ -67,14 +67,12 @@ static short pmove_e(unsigned short CardNo, unsigned short axis, double Dist, un
     return smc_pmove_unit(CardNo, axis, Dist, posi_mode);
 }
 
-static short check_done(unsigned short CardNo, unsigned short axis) {
+static short check_done_e(unsigned short CardNo, unsigned short axis) {
     return smc_check_done(CardNo, axis);
 }
 
-static double get_position(unsigned short CardNo, unsigned short axis) {
-    double pos = 0;
-    short ret = smc_get_position_unit(CardNo, axis, &pos);
-    return pos;
+static short get_position_e(unsigned short CardNo, unsigned short axis, double* pos) {
+    return smc_get_position_unit(CardNo, axis, pos);
 }
 
 static short set_position_e(unsigned short CardNo, unsigned short axis, double current_position) {
@@ -87,6 +85,14 @@ static short get_encoder_unit_e(unsigned short ConnectNo, unsigned short axis, d
 
 static short set_encoder_unit_e(unsigned short ConnectNo,unsigned short axis,double encoder_value) {
     return smc_set_encoder_unit(ConnectNo, axis, encoder_value);
+}
+
+static short get_counter_inmode_e(unsigned short ConnectNo, unsigned short axis, unsigned short *mode) {
+    return smc_get_counter_inmode(ConnectNo, axis, mode);
+}
+
+static short set_counter_inmode_e(unsigned short ConnectNo, unsigned short axis, unsigned short mode) {
+    return smc_set_counter_inmode(ConnectNo, axis, mode);
 }
 
 static short stop_e(unsigned short CardNo, unsigned short axis, unsigned short stop_mode) {
