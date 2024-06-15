@@ -12,10 +12,10 @@ from setuptools.command.build_py import build_py
 
 
 def copy_ext_modules():
-    ext_module_paths = glob.glob("_smc600.*.pyd")
+    ext_module_paths = glob.glob("*.pyd")
     for ext_module_path in ext_module_paths:
         if os.path.exists(ext_module_path):
-            dst_file_path = 'SMC600/_smc600.pyd'
+            dst_file_path = 'SMC600'
             print(f"Copy {ext_module_path} to {dst_file_path}")
             shutil.copy(ext_module_path, dst_file_path)
             return
@@ -38,9 +38,11 @@ MOTION_EXT = Extension(
 # or the generated SWIG python files will be missing.
 class BuildPy(build_py):
     def run(self):
+        build_ext_cmd = self.get_finalized_command('build_ext')
+        build_ext_cmd.inplace = 1
         self.run_command('build_ext')
-        super(build_py, self).run()
         copy_ext_modules()
+        super(build_py, self).run()
 
 
 setup(name='SMC600',

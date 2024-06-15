@@ -11,4 +11,7 @@ namespace std {
    %template(vectord) vector<double>;
 };
 
+%include "cpointer.i"
+%pointer_functions(double, doublep);
+
 %include "smc600.h"
