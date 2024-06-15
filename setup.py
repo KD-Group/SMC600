@@ -3,8 +3,8 @@
 setup.py file for smc600 module
 """
 
-import os
 import glob
+import os
 import shutil
 
 from setuptools import Extension, find_packages, setup
@@ -15,7 +15,12 @@ def copy_ext_modules():
     ext_module_paths = glob.glob("_smc600.*.pyd")
     for ext_module_path in ext_module_paths:
         if os.path.exists(ext_module_path):
-            shutil.copy(ext_module_path, 'SMC600/_smc600.pyd')
+            dst_file_path = 'SMC600/_smc600.pyd'
+            print(f"Copy {ext_module_path} to {dst_file_path}")
+            shutil.copy(ext_module_path, dst_file_path)
+            return
+    print('Failed to found compiled pyd file')
+    exit(-1)
 
 
 MOTION_EXT = Extension(
@@ -35,12 +40,11 @@ class BuildPy(build_py):
     def run(self):
         self.run_command('build_ext')
         super(build_py, self).run()
+        copy_ext_modules()
 
-
-copy_ext_modules()
 
 setup(name='SMC600',
-      version='0.0.8',
+      version='0.0.9',
       author="WingC",
       author_email="1018957763@qq.com",
       description="""Python module for SMC600""",
