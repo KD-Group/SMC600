@@ -14,5 +14,6 @@ namespace std {
 %include "cpointer.i"
 %pointer_functions(double, doublep);
 %pointer_functions(unsigned short, unsigned_short_p);
+%pointer_functions(unsigned long, unsigned_long_p);
 
 %include "smc600.h"

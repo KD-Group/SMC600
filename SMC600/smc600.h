@@ -18,12 +18,16 @@ static short board_close_e(unsigned short CardNo) {
     return smc_board_close(CardNo);
 }
 
-static unsigned long get_card_version_list_e(unsigned short CardNo) {
-    unsigned long card_version_list;
-    short ret = smc_get_card_version(CardNo, &card_version_list);
+static unsigned long get_card_version_list(unsigned short CardNo, unsigned long *card_version_list) {
+    return smc_get_card_version(CardNo, card_version_list);
+}
 
-    if (ret != 0) return 71;
-    return card_version_list;
+static short get_equiv_e(unsigned short CardNo, unsigned short axis, double *equiv) {
+    return smc_get_equiv(CardNo, axis, equiv);
+}
+
+static short set_equiv_e(unsigned short CardNo, unsigned short axis, double equiv) {
+    return smc_set_equiv(CardNo, axis, equiv);
 }
 
 static short set_alm_mode_e(unsigned short CardNo, unsigned short axis, unsigned short enable, unsigned short alm_logic,
@@ -67,7 +71,7 @@ static short pmove_e(unsigned short CardNo, unsigned short axis, double Dist, un
     return smc_pmove_unit(CardNo, axis, Dist, posi_mode);
 }
 
-static short check_done_e(unsigned short CardNo, unsigned short axis) {
+static short check_done(unsigned short CardNo, unsigned short axis) {
     return smc_check_done(CardNo, axis);
 }
 
@@ -93,6 +97,14 @@ static short get_counter_inmode_e(unsigned short ConnectNo, unsigned short axis,
 
 static short set_counter_inmode_e(unsigned short ConnectNo, unsigned short axis, unsigned short mode) {
     return smc_set_counter_inmode(ConnectNo, axis, mode);
+}
+
+static short get_backlash_unit_e(unsigned short ConnectNo, unsigned short axis, double *backlash) {
+    return smc_get_backlash_unit(ConnectNo, axis, backlash);
+}
+
+static short set_backlash_unit_e(unsigned short ConnectNo, unsigned short axis, double backlash) {
+    return smc_set_backlash_unit(ConnectNo, axis, backlash);
 }
 
 static short stop_e(unsigned short CardNo, unsigned short axis, unsigned short stop_mode) {
