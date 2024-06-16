@@ -122,3 +122,16 @@ static short update_target_position_e(unsigned short CardNo, unsigned short axis
 static short reset_target_position_e(unsigned short CardNo, unsigned short axis, double dist) {
     return smc_reset_target_position_unit(CardNo, axis, dist);
 }
+
+static short read_org_pin(unsigned short CardNo, unsigned short axis) {
+    return smc_read_org_pin(CardNo, axis);
+}
+
+static short read_elp_pin(unsigned short CardNo, unsigned short axis) {
+    return smc_read_elp_pin(CardNo, axis);
+}
+
+static short read_eln_pin(unsigned short CardNo, unsigned short axis) {
+    return smc_read_eln_pin(CardNo, axis);
+}
+
