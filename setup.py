@@ -46,7 +46,7 @@ class BuildPy(build_py):
 
 
 setup(name='SMC600',
-      version='0.0.13',
+      version='0.0.14',
       author="WingC",
       author_email="1018957763@qq.com",
       description="""Python module for SMC600""",

@@ -18,7 +18,7 @@ static short board_close_e(unsigned short CardNo) {
     return smc_board_close(CardNo);
 }
 
-static unsigned long get_card_version_list(unsigned short CardNo, unsigned long *card_version_list) {
+static short get_card_version_list_e(unsigned short CardNo, unsigned long *card_version_list) {
     return smc_get_card_version(CardNo, card_version_list);
 }
 
