@@ -136,6 +136,6 @@ static short read_eln_pin(unsigned short CardNo, unsigned short axis) {
 }
 
 static unsigned long axis_io_status(unsigned short CardNo, unsigned short axis) {
-    return smc_axis_io_status(CardNo, axis)
+    return smc_axis_io_status(CardNo, axis);
 }
 
