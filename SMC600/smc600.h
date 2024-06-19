@@ -22,7 +22,7 @@ static short get_card_version_list_e(unsigned short CardNo, unsigned long *card_
     return smc_get_card_version(CardNo, card_version_list);
 }
 
-static short get_equiv_e(unsigned short CardNo, unsigned short axis, double *equiv) {
+static short get_equiv(unsigned short CardNo, unsigned short axis, double *equiv) {
     return smc_get_equiv(CardNo, axis, equiv);
 }
 
@@ -75,7 +75,7 @@ static short check_done(unsigned short CardNo, unsigned short axis) {
     return smc_check_done(CardNo, axis);
 }
 
-static short get_position_e(unsigned short CardNo, unsigned short axis, double* pos) {
+static short get_position(unsigned short CardNo, unsigned short axis, double* pos) {
     return smc_get_position_unit(CardNo, axis, pos);
 }
 
@@ -83,7 +83,7 @@ static short set_position_e(unsigned short CardNo, unsigned short axis, double c
     return smc_set_position_unit(CardNo, axis, current_position);
 }
 
-static short get_encoder_unit_e(unsigned short ConnectNo, unsigned short axis, double* pos) {
+static short get_encoder_unit(unsigned short ConnectNo, unsigned short axis, double* pos) {
     return smc_get_encoder_unit(ConnectNo, axis, pos);
 }
 
@@ -91,7 +91,7 @@ static short set_encoder_unit_e(unsigned short ConnectNo,unsigned short axis,dou
     return smc_set_encoder_unit(ConnectNo, axis, encoder_value);
 }
 
-static short get_counter_inmode_e(unsigned short ConnectNo, unsigned short axis, unsigned short *mode) {
+static short get_counter_inmode(unsigned short ConnectNo, unsigned short axis, unsigned short *mode) {
     return smc_get_counter_inmode(ConnectNo, axis, mode);
 }
 
@@ -99,7 +99,7 @@ static short set_counter_inmode_e(unsigned short ConnectNo, unsigned short axis,
     return smc_set_counter_inmode(ConnectNo, axis, mode);
 }
 
-static short get_backlash_unit_e(unsigned short ConnectNo, unsigned short axis, double *backlash) {
+static short get_backlash_unit(unsigned short ConnectNo, unsigned short axis, double *backlash) {
     return smc_get_backlash_unit(ConnectNo, axis, backlash);
 }
 
