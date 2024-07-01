@@ -2,7 +2,12 @@
 
 [![Build status](https://ci.appveyor.com/api/projects/status/iyix3p3fnhmfkmy3?svg=true)](https://ci.appveyor.com/project/Wingsgo/smc600)
 
-雷塞SMC600系列运动控制程序说明
+## 安装方式
+```
+pip install SMC600
+```
+
+## 雷塞SMC600系列运动控制程序说明
 
 1. X/Y轴: 10000个脉冲走4mm(默认值)
 2. Z轴: 10000个脉冲走1mm(默认值)
