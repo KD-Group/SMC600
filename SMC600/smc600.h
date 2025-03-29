@@ -64,7 +64,7 @@ static short set_home_profile_e(unsigned short CardNo, unsigned short axis, doub
 }
 
 static short set_home_position_e(unsigned short CardNo, unsigned short axis, unsigned short enable, double position) {
-    return smc_set_home_position_unit(CardNo, axis, enable, position)
+    return smc_set_home_position_unit(CardNo, axis, enable, position);
 }
 
 static short home_move_e(unsigned short CardNo, unsigned short axis) {
